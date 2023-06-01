@@ -97,7 +97,7 @@ confirm_password_entry = tk.Entry(window, show="*")
 confirm_password_entry.grid(row=3, column=1)
 
 # Create buttons
-submit_button = tk.Button(window, text="Submit", command=onsubmit())
+submit_button = tk.Button(window, text="Submit", command=onsubmit) 
 submit_button.grid(row=4, column=0)
 
 get_button = tk.Button(window, text="Get", command=onget)
