@@ -43,20 +43,65 @@ def onsubmit():
         conn.commit()
         conn.close()
 
-    #else:
+        password_entry.delete(0, tk.END)
+        confirm_password_entry.delete(0, tk.END)
+        website_entry.delete(0, tk.END)
+        username_entry.delete(0, tk.END)
 
+        #I tried this but it prints a space over the X
+        """
+        wrong_password_label = tk.Label(window, text="")
+        wrong_password_label.grid(row=2, column=2)
+        
+        wrong_confirm_password_label = tk.Label(window, text="")
+        wrong_confirm_password_label.grid(row=3, column=2)
+        """
+
+        wrong_password_label.grid_forget()
+        wrong_confirm_password_label.grid_forget()
+
+
+    elif password != confirm_password:
+        confirm_password_entry.delete(0, tk.END)
+
+        wrong_password_label = tk.Label(window, text="X")
+        wrong_password_label.grid(row=2, column=2)
+        
+        wrong_confirm_password_label = tk.Label(window, text="X")
+        wrong_confirm_password_label.grid(row=3, column=2)
 
 def onget():
-
     # Function to handle button click events
     # Access the input field values and perform necessary actions
     website = website_entry.get()
     username = username_entry.get()
     
-    # Print the input values for demonstration purposes
-    print("Username:", username)
-    print("Password:", password)
-    print("Confirm Password:", confirm_password)
+    # Connect to the database
+    conn = sqlite3.connect("passwords.db")
+    c = conn.cursor()
+    
+    # Retrieve the password from the database based on the website and username
+    c.execute("SELECT password FROM passwords WHERE website = ? AND username = ?", (website, username))
+    result = c.fetchone()
+    
+    # Check if a password is found
+    if result is not None:
+        # Retrieve the password from the query result
+        password = result[0]
+        # Set the retrieved password in the password entry field
+        password_entry.configure(show="")
+        password_entry.delete(0, tk.END)  # Clear the existing text
+        password_entry.insert(0, password)
+    else:
+        # No matching password found
+        password_entry.configure(show="")
+        password_entry.delete(0, tk.END)  # Clear the existing text
+        password_entry.insert(0, "Password not found")
+    
+    # Commit the changes and close the connection
+    conn.commit()
+    conn.close()
+
 
 def ongenerate():
     # Function to handle button click events
@@ -97,7 +142,7 @@ confirm_password_entry = tk.Entry(window, show="*")
 confirm_password_entry.grid(row=3, column=1)
 
 # Create buttons
-submit_button = tk.Button(window, text="Submit", command=onsubmit) 
+submit_button = tk.Button(window, text="Submit", command=onsubmit)
 submit_button.grid(row=4, column=0)
 
 get_button = tk.Button(window, text="Get", command=onget)
@@ -108,10 +153,7 @@ generate_button.grid(row=4, column=2)
 
 create_table()
 
-view = input("Do you want to view all data?")
-
-if view == 'yes':
-    view_data()
+view_data()
 
 # Start the main GUI event loop
 window.mainloop()
