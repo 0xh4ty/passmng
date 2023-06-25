@@ -4,7 +4,6 @@ import secrets
 import string
 import os
 from cryptography.fernet import Fernet
-from viewall import view_data
 
 def login():
     # Function to handle login button click event
@@ -221,7 +220,5 @@ generate_button.grid(row=4, column=2)
 master_password = "Passw0rd!"
 
 create_table()
-
-view_data()
 
 window.mainloop()
