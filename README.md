@@ -13,11 +13,9 @@ This is a simple password manager application implemented in Python using the Tk
 
 1. Clone the repository or download the source code.
 
-2. Install the required dependencies using the following command:
+2. Install the required dependencies.
 
-  ```shell
-  pip install -r requirements.txt
-  ```
+3. Navigate to the `passmng` folder.
 
 4. Open the `main.py` file in a text editor.
 
