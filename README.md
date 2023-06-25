@@ -1,6 +1,6 @@
 # PassMNG
 
-This is a simple password manager application implemented in Python using the Tkinter library. It allows you to securely store and retrieve passwords for different websites and usernames.
+PassMNG is a simple password manager tool implemented in Python that incorporates encryption for secure password storage, retrieval and generation. It allows you to securely store, retrieve and generate passwords for different websites under various usernames.
 
 ## Prerequisites
 
