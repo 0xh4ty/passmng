@@ -24,11 +24,11 @@ PassMNG is a simple password manager tool implemented in Python that incorporate
   master_password = "Passw0rd!"
   ```
 
-5. Change the key_file_path variable to the desired path where you want to store the encryption key file. Make sure to provide the full file path.
+5. Change the `key_file_path` variable to the desired path where you want to store the encryption key file. Make sure to provide the full file path.
 
-6. Update the master_password value with your preferred master password. This is the password that will be used to access the password manager features.
+6. Update the `master_password` value with your preferred master password. This is the password that will be used to access the password manager features.
 
-7. Save the changes to the main.py file.
+7. Save the changes to the `main.py` file.
 
 ## Usage
 
