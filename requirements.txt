@@ -1,3 +1,0 @@
-tkinter==0.1
-sqlite3==2.6.0
-cryptography==3.4.7
