@@ -15,11 +15,9 @@ PassMNG is a simple password manager tool implemented in Python that incorporate
 
 2. Install the required dependencies.
 
-3. Navigate to the `passmng` folder.
+3. Open the `main.py` file in a text editor.
 
-4. Open the `main.py` file in a text editor.
-
-5. Locate the following variables in the code:
+4. Locate the following variables in the code:
 
   ```python
   key_file_path = "key.txt"
