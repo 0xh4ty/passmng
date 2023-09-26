@@ -153,7 +153,7 @@ crypt_key = Fernet(key)
 
 # Create the main window
 window = tk.Tk()
-window.title("Password Manager")
+window.title("PassMNG")
 
 # Create login frame
 login_frame = tk.Frame(window)
